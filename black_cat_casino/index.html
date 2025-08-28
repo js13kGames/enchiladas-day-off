@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CAT PLEASE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        image-rendering: pixelated;
+        /* border: 1px blue solid; */
+        box-sizing: border-box;
+      }
+
+      div {
+        margin: 0;
+        image-rendering: pixelated;
+        /* border: 1px blue solid; */
+        box-sizing: border-box;
+      }
+
+      #room {
+        left: 0px;
+        top: 0px;
+        width: 65px;
+        height: 100px;
+        position: relative;
+        transform: scale(8) translate(29px, 45px);
+      }
+
+      #bars {
+        left: 0px;
+        top: 0px;
+        width: 100%;
+      }
+
+      #hud {
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        /* transform: translate(0px); */
+      }
+
+      #menu {
+        display: flex;
+        flex-direction: row;
+      }
+
+      #bars {
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #happy,
+      #hungry {
+      }
+
+      #room {
+        z-index: 1;
+        left: 0px;
+        top: 0px;
+        width: 65px;
+        height: 100px;
+        position: relative;
+        background: url("enchilada.png") 0 0;
+      }
+
+      #cat {
+        position: absolute;
+        left: 0px;
+        top: 32px;
+        width: 64px;
+        height: 48px;
+      }
+
+      #base {
+        position: absolute;
+        left: 10px;
+        top: 3px;
+        width: 49px;
+        height: 41px;
+        background: url("cat.png") 0 0;
+      }
+
+      #eyes {
+        position: absolute;
+        left: 16px;
+        top: 24px;
+        width: 23px;
+        height: 10px;
+        background: url("cat.png") -49px 0px;
+      }
+
+      #feet {
+        position: absolute;
+        left: 15px;
+        top: 41px;
+        width: 32px;
+        height: 6px;
+        background: url("cat.png") -49px -30px;
+      }
+
+      #stuff {
+        display: none;
+        left: 0px;
+        top: 0px;
+        width: 65px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="game">
+        <div id="room">
+          <div id="cat">
+            <div id="base"></div>
+            <div id="eyes"></div>
+            <div id="feet"></div>
+            <div id="stuff"></div>
+          </div>
+        </div>
+
+        <div id="casino"></div>
+      </div>
+      <div id="hud">
+        <div id="bars">
+          <label for="happy" id="happy-label">Happy</label>
+          <progress id="happy" value="100" max="100"></progress>
+
+          <label for="hungry" id="hungry-label">Hungy</label>
+          <progress id="hungry" value="100" max="100"></progress>
+        </div>
+        <div id="menu">
+          <button id="feed">feed</button>
+          <button id="dress">dress</button>
+          <button id="casino">casino</button>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>

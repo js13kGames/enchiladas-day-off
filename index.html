@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JS13k 2025</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <script>
+      const sprite_1 = document.createElement("img");
+      sprite_1.src = "./sprite_1.png";
+
+      const sprite_2 = document.createElement("img");
+      sprite_2.src = "./sprite_2.png";
+
+      const display_sprite = document.createElement("img");
+      document.body.appendChild(display_sprite);
+
+      display_sprite.src = sprite_1.src;
+      let animationPaused = true;
+      let frame = 0;
+      function animate() {
+        if (animationPaused) return;
+        if (frame === 0) {
+          frame = 1;
+          display_sprite.src = sprite_2.src;
+        } else {
+          frame = 0;
+          display_sprite.src = sprite_1.src;
+        }
+        setTimeout(animate, Math.random() * 200);
+      }
+
+      const synth = window.speechSynthesis;
+      const utterance = new SpeechSynthesisUtterance(`
+      niian
+      `);
+      const voices = synth.getVoices();
+      utterance.voice = voices[0];
+      utterance.onstart = () => {
+        animationPaused = false;
+        animate();
+      };
+      utterance.onend = () => {
+        animationPaused = true;
+        display_sprite.src = sprite_1.src;
+      };
+
+      synth.speak(utterance);
+
+      // navigator.vibrate([200]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+{ "frames": {
+   "bg.aseprite": {
+    "frame": { "x": 1, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "cat.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "lil_guy.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "earring.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "tuna.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "bowtie_tail.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "collar.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "news.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "joystick.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "milk_cup.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "beeg_headphones.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "bowtie_head.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "handle_stache.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "pencil_stache.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "fork.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "visor.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "sunglasses.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "business_tie.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   },
+   "bowtie_neck.aseprite": {
+    "frame": { "x": 4, "y": 1, "w": 1, "h": 1 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 1, "h": 1 },
+    "sourceSize": { "w": 65, "h": 100 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.14.4-x64",
+  "image": "enchilada.png",
+  "format": "RGBA8888",
+  "size": { "w": 6, "h": 3 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "bg", "opacity": 255, "blendMode": "normal" },
+   { "name": "cat", "opacity": 255, "blendMode": "normal" },
+   { "name": "lil_guy", "opacity": 255, "blendMode": "normal" },
+   { "name": "earring", "opacity": 255, "blendMode": "normal" },
+   { "name": "tuna", "opacity": 255, "blendMode": "normal" },
+   { "name": "bowtie_tail", "opacity": 255, "blendMode": "normal" },
+   { "name": "collar", "opacity": 255, "blendMode": "normal" },
+   { "name": "news", "opacity": 255, "blendMode": "normal" },
+   { "name": "joystick", "opacity": 255, "blendMode": "normal" },
+   { "name": "milk_cup", "opacity": 255, "blendMode": "normal" },
+   { "name": "beeg_headphones", "opacity": 255, "blendMode": "normal" },
+   { "name": "bowtie_head", "opacity": 255, "blendMode": "normal" },
+   { "name": "handle_stache", "opacity": 255, "blendMode": "normal" },
+   { "name": "pencil_stache", "opacity": 255, "blendMode": "normal" },
+   { "name": "fork", "opacity": 255, "blendMode": "normal" },
+   { "name": "visor", "opacity": 255, "blendMode": "normal" },
+   { "name": "sunglasses", "opacity": 255, "blendMode": "normal" },
+   { "name": "business_tie", "opacity": 255, "blendMode": "normal" },
+   { "name": "bowtie_neck", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
