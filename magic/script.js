@@ -46,11 +46,15 @@ const program = createProgram(
   createShader(
     gl.VERTEX_SHADER,
     `#version 300 es
-in vec2 a_position;
-in vec2 a_textureCoord;
+// [0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
 
-in vec3 a_m1;
-in vec3 a_m2;
+uniform vec3 a_m1;
+uniform vec3 a_m2;
+mat3 tr ansform = mat3(a_m1, a_m2, vec3(0, 0, 1));
+
+uniform vec3 a_t1;
+uniform vec3 a_t2;
+mat3 texture = mat3(a_t1, a_t2, vec3(0, 0, 1));
 
 m = mat3(a_m1, a_m2, vec3(0, 0, 1))
 

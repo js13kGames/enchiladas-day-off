@@ -48,13 +48,6 @@ const program = createProgram(
 in vec2 a_position;
 in vec2 a_textureCoord;
 
-in vec3 a_m1;
-in vec3 a_m2;
-
-m = mat3(a_m1, a_m2, vec3(0, 0, 1))
-
-in mat3 u_matrix;
-
 uniform vec2 u_resolution;
 uniform mat3 u_matrix;
 
