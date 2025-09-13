@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Hello</title>
+  </head>
+  <body>
+    <form id="poppy">
+      <h1 id="eat">Hello</h1>
+      <input id="flies" type="text" />
+      <button id="submit" type="submit">Submit</button>
+    </form>
+    <script>
+      poppy.onsubmit = (e) => (e.preventDefault(), (eat.textContent = `Hello I'm ${flies.value}.`));
+      const b = document.createElement("button");
+      document.body.appendChild(b);
+    </script>
+  </body>
+</html>

@@ -1,24 +1,28 @@
 const ᕦò_óˇᕤ = "ಠ_ಠ";
 const ΣδΔ = "sdΔ";
+const δ = undefined;
 const min = Math.min;
 const max = Math.max;
 
+const el = (t, id, text) => {
+  const e = document.createElement(t);
+  e.id = id;
+  e.innerText = text;
+  return e;
+};
 const clamp = (x, mn = VMIN, mx = VMAX) => max(mn, min(mx, x));
 const roll = (name, x, r = Math.random() * 100) => {
   console.log(`roll to ${name} ${r > x ? "⭕" : "❌"}`, x, r);
   return r > x;
 };
-const onclick = (e, f) => e.addEventListener("click", f);
-const e = (name, ...args) => {
-  console.log(`>> ${name}: `, ...args);
-};
+const onclick = (e, f) => (e.addEventListener("click", f), e);
 
-/** @type {HTMLCanvasElement} */
-const c = document.querySelector("#c");
-/**@type {WebGL2RenderingContext} */
-const gl = c.getContext("webgl2");
-/** @type {HTMLImageElement} */
-const cat = window["cat"];
+// /** @type {HTMLCanvasElement} */
+// const c = document.querySelector("#c");
+// /**@type {WebGL2RenderingContext} */
+// const gl = c.getContext("webgl2");
+// /** @type {HTMLImageElement} */
+// const cat = window["cat"];
 
 const CAT_STATE = {
   IDLE: 0,
@@ -27,6 +31,23 @@ const CAT_STATE = {
   SLEEP: 3,
   PLAY: 4,
 };
+
+const items = [
+  ["bowtie_neck", 10, 0],
+  ["business_tie", 10, 0],
+  ["sunglasses", 10, 0],
+  ["visor", 10, 0],
+  ["spatula", 10, 0],
+  ["fork", 10, 0],
+  ["pencil_stache", 10, 0],
+  ["handle_stache", 10, 0],
+  ["bowtie_head", 10, 0],
+  ["beeg_headphones", 10, 0],
+  ["collar", 10, 0],
+  ["bowtie_tail", 10, 0],
+  ["earring", 10, 0],
+  ["lil_guy", 10, 0],
+];
 
 const VMIN = 0;
 const VMAX = 100;
@@ -38,7 +59,7 @@ const TUMMY_HURT = 4;
 
 var cat_state = 0,
   gyros = 0, // money
-  gyrosRate = 0,
+  gyrosRate = 1,
   oreos = 0, // hunger
   oreosRate = 0,
   litter = 0, // poop
@@ -50,51 +71,84 @@ var cat_state = 0,
   food = 0,
   toys = 0,
   full = 0,
+  shop_open = 0,
+  no_butts = 0,
+  room = 1,
   last_state = CAT_STATE.IDLE,
   state_counter = 0,
   paused = false,
   mite = 0,
-  tickTimestamp = 0,
+  frame = 0,
+  lastTickTimestamp = 0,
   renderTimestamp = 0;
 
-const items = {
-  bowtie_neck: [10],
-  business_tie: [10],
-  sunglasses: [10],
-};
-
 function load() {
-  onclick(next, (e) => {
-    if (e.ctrlKey) {
-      update();
-      update();
-      update();
-      update();
-      update();
-    } else {
-      update();
-    }
+  items.forEach((i) => {
+    i.push(el("button", i[0], `${i[0]}: $${i[1]}`));
+    li.appendChild(
+      onclick(i[3], () => {
+        if (i[2]) {
+          // toggle item
+          console.log("toggle");
+        } else {
+          // check wallet
+          console.log("buy");
+          if (gyros > i[1]) {
+            gyros = gyros - i[1];
+            i[2] = 1;
+          }
+        }
+      })
+    );
   });
-  onclick(pause, () => {
-    paused = !paused;
-    if (!paused) start();
-  });
+
+  // onclick(next, (e) => {
+  //   if (e.ctrlKey) {
+  //     update();
+  //     update();
+  //     update();
+  //     update();
+  //     update();
+  //   } else {
+  //     update();
+  //   }
+  // });
+  // onclick(pause, () => {
+  //   paused = !paused;
+  //   if (!paused) start();
+  // });
   onclick(stuff, () => {
     food = clamp(food + 25);
   });
   onclick(clean, () => {
-    litter = 0;
+    if (no_butts) return;
+    if (room != 0) {
+      no_butts = 1;
+      rooms.lerp(1000, 1, 65, δ, () => {
+        room = 0;
+        no_butts = 0;
+      });
+    } else {
+      litter = 0;
+    }
   });
   onclick(play, () => {
     if (roll("play", 50)) {
       cat_state = CAT_STATE.PLAY;
     }
   });
+  onclick(shop, () => {
+    shop_open = !shop_open;
+    sh.style.display = shop_open ? "block" : "none";
+  });
 }
 
 function start() {
   paused = false;
-  requestAnimationFrame(render);
+  render.background(75, 105, 47);
+  // render.background(1, 1, 1);
+
+  requestAnimationFrame(render2);
 }
 
 function update() {
@@ -116,6 +170,7 @@ function update() {
     case CAT_STATE.EAT:
       if (no_food || roll("eat", 50)) {
         cat_state = CAT_STATE.IDLE;
+
         break;
       }
 
@@ -161,7 +216,7 @@ function update() {
     state_counter = 1;
   }
 
-  // execute state tasks
+  // set state base rates
   switch (cat_state) {
     case CAT_STATE.IDLE:
       gyrosRate = IDLE_INCOME_RATE;
@@ -181,7 +236,7 @@ function update() {
     case CAT_STATE.SLEEP:
       staminaRate = 5;
       oreosRate = IDLE_HUNGER_RATE;
-      happinessRate = -5;
+      happinessRate = -1;
       break;
 
     case CAT_STATE.EAT:
@@ -201,10 +256,34 @@ function update() {
       break;
   }
 
+  // add conditional modifiers
+  if (oreos > 25) {
+    happinessRate += 1;
+  }
+
+  if (oreos > 50) {
+    staminaRate -= 4;
+    happinessRate += 2;
+  }
+
+  if (oreos > 80) {
+    // staminaRate -= 3;
+    happinessRate += 2;
+  }
+
   if (litter > 75) {
     happinessRate += 5;
   }
 
+  if (happiness > 90) {
+    staminaRate -= 5;
+  }
+
+  /** notes
+   * - [ ] shouldn't be able to sleep while max hungry or angry
+   */
+
+  // execute
   stamina = clamp(stamina + staminaRate);
   gyros = clamp(gyros + gyrosRate);
   oreos = clamp(oreos + oreosRate);
@@ -212,20 +291,23 @@ function update() {
   gyros = clamp(gyros + gyrosRate);
 }
 
-function render(timestamp) {
+function render2(timestamp) {
   const λ = timestamp - renderTimestamp;
   if (paused) return;
-  if (timestamp - tickTimestamp >= TICK_DURATION) {
-    tickTimestamp = timestamp;
+  if (timestamp - lastTickTimestamp >= TICK_DURATION) {
+    lastTickTimestamp = timestamp;
     update();
   }
+  frame++;
+  // console.log(frame);
   draw();
-  requestAnimationFrame(render);
+  draw2(frame, timestamp);
+  requestAnimationFrame(render2);
 }
 
 function draw() {
-  cat_label.textContent = `${[...Object.keys(CAT_STATE)][cat_state]} ${mite} ${full ? `💩${full}` : ""} `;
-  d_label.textContent = `${[...Object.keys(CAT_STATE)][last_state]}: ${state_counter}`;
+  // cat_label.textContent = `${[...Object.keys(CAT_STATE)][cat_state]} ${mite} ${full ? `💩${full}` : ""} `;
+  // d_label.textContent = `${[...Object.keys(CAT_STATE)][last_state]}: ${state_counter}`;
   money_label.textContent = `🧶: ${gyros}`;
   stamina_label.textContent = `⚡: ${stamina}`;
   stamina_bar.value = stamina;
@@ -236,6 +318,12 @@ function draw() {
   anger_label.textContent = `😠: ${happiness}`;
   anger_bar.value = happiness;
   food_label.textContent = `🍗: ${food}`;
+}
+
+function draw2(frame, ts) {
+  render.clear();
+  world.render(frame, ts);
+  render.flush();
 }
 
 load();

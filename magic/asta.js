@@ -1,0 +1,20 @@
+[...document.querySelectorAll('canvas')].map(
+    e=>{
+        e.width=e.height=48;
+        d=atob(e.innerHTML).split('').map(c=>c.charCodeAt());
+        c=e.getContext("2d");
+        c.fillStyle="rgb("+d.slice(32).join(',')+")"; // ?
+        c.fillStyle="rgb("+d[32]+","+d[33]+","+d[34]+")";
+        d.map((d,t)=>{
+            for(k=0;k<8;k++){
+                c.fillRect(
+                    (k+t*8%16)*3,
+                    3*(t>>1),
+                    3*(1&(d>>k)),
+                    3
+                )
+            }
+          }
+        )
+    }
+)
